@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="CHOLVY Léo">
+        <meta name="description" content="Site vitrine sur le film Mamma Mia! réalisé par Léo Cholvy dans le cadre de l'UE MM01 de l'Université de Technologie de Troyes au semestre P24">
+        <meta name="keywords" content="mamma, mia, mm01, utt, abba, quizz, blind, test, representation, acteur, personnage, bande, son, synopsis, resume, vitrine, presentation, film, comedie, musicale, dance, romance">
+        <title>Acteurs</title>
+        <!-- favicon -->
+        <link rel="icon" type="image/x-icon" href="../img/favicon_40.png" />
+
+        <!-- style général -->
+        <link rel="stylesheet" href="../style/style.css" />
+        <!-- disposition normale (sans le aside) -->
+        <link rel="stylesheet" href="../style/dispo.css">
+    </head>
+    <!-- icons -->
+    <script src="https://kit.fontawesome.com/062ed41b50.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        main > section h2 {
+            font-size: 1.3rem;
+        }
+        main > section , main > div {
+            position: static;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            width: 90%;
+        }
+        main > section {
+            padding-top: 0.5rem; padding-bottom: 0.5rem;
+        }
+        .container section {
+            margin: 0;
+            width: 15rem;
+            min-height: 20rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        .container div {
+            padding: 1rem;
+            backdrop-filter: blur(10px);
+            mask: linear-gradient(
+                to top,
+                rgba(0, 0, 0, 1) 80%,
+                rgba(0, 0, 0, 0) 100%
+            );
+            border-radius: 0 0 1rem 1rem;
+            padding-top: 20%;
+            background-color: #f2f9fda5;
+            opacity: 0;
+            transition: opacity 0.7s ease-in-out;
+        }
+        .container section:hover div, .container section.active-perso div {
+            opacity: 1;
+        }
+        .container p {
+            text-align: justify;
+        }
+        .container h4 {
+            color: #9e5f34;
+        }
+        .container h4::before {
+            content: "Rôle: ";
+            font-size: 0.8em;
+        }
+        .container h3 {
+            margin: 0;
+        }
+        .container a {
+            text-decoration: underline;
+        }
+    </style>
+    <body>
+        <header>
+            <div id="burger-bg"></div>
+            <a href="../index.html" title="vers l'accueil" id="logo"><h2>MAMMA
+                    MIA!</h2></a>
+            <i class="fa-solid fa-2xl fa-bars" id="burger-icon"
+                onclick="toggleBurger()"></i>
+            <nav>
+                <a href="resume.html">Résumé</a>
+                <div class="dropdown">
+                    <a class="dropdown-btn" style="font-weight: bold;">Rôles<i
+                            class="fa-solid fa-caret-down"></i><i
+                            class="fa-solid fa-caret-up"></i></a>
+                    <div class="dropdown-content">
+                        <a href="personnage.html">Personnages</a>
+                        <a href="acteur.html" style="font-weight: bold;">Acteurs</a>
+                    </div>
+                </div>
+                <a href="representation.html">Représentation</a>
+                <a href="bande-son.html">Bandes sons</a>
+                <div class="dropdown">
+                    <a class="dropdown-btn">Jeux<i
+                            class="fa-solid fa-caret-down"></i><i
+                            class="fa-solid fa-caret-up"></i></a>
+                    <div class="dropdown-content">
+                        <a href="quizz.html">Quiz</a>
+                        <a href="blind-test.html">Blind-test</a>
+                    </div>
+                </div>
+                <a href="source.html">Sources</a>
+                <a href="contact.html">Contacts</a>
+            </nav>
+        </header>
+
+        <main>
+            <section><h2>Acteurs du film</h2></section>
+
+            <!-- container en flex pour le responsive -->
+            <div class="container">
+                <!-- toutes les sections ont:
+                    - un id
+                    - une image
+                    - une description
+                    - et un lien vers la fiche equivalent dans la page personnage
+                -->
+                <section style="background-image: url('../img/acteurs/amanda.jpg');" id="amanda">
+                    <div>
+                        <h3>Amanda Seyfried</h3>
+                        <h4>Sophie Sheridan</h4>
+                        <!-- <img src="../img/acteurs/amanda.jpg" alt=""> -->
+                        <p>
+                            <strong>Jeune actrice talentueuse</strong> connue
+                            pour ses rôles dans des films variés. Elle se
+                            distingue par sa
+                            <strong>présence charismatique</strong> et sa
+                            capacité à jouer des personnages
+                            <strong>émotionnellement complexes</strong>.
+                        </p>
+                        <a href="./personnage.html#sophie"><i>Description du
+                                personnage</i></a>
+                    </div>
+                </section>
+
+                <section
+                    style="background-image: url('../img/acteurs/pierce.jpg');"
+                    id="pierce">
+                    <div>
+                        <h3>Pierce Brosnan</h3>
+                        <h4>Sam Carmichael</h4>
+                        <!-- <img src="../img/acteurs/pierce.jpg" alt=""> -->
+                        <p>
+                            <strong>Acteur renommé</strong> et ancien James
+                            Bond, connu pour son charme et son
+                            <strong>talent polyvalent</strong>. Il apporte une
+                            <strong>présence imposante</strong> et une
+                            profondeur à chacun de ses rôles.
+                        </p>
+                        <a href="./personnage.html#sam"><i>Description du
+                                personnage</i></a>
+                    </div>
+                </section>
+
+                <section
+                    style="background-image: url('../img/acteurs/colin.jpg');"
+                    id="colin">
+                    <div>
+                        <h3>Colin Firth</h3>
+                        <h4>Harry Bright</h4>
+                        <!-- <img src="../img/acteurs/colin.jpg" alt=""> -->
+                        <p>
+                            <strong>Acteur britannique respecté</strong>, connu
+                            pour ses rôles dans des films d'époque et
+                            contemporains. Il a remporté un Oscar pour sa
+                            <strong>performance exceptionnelle</strong> dans
+                            "Le Discours d'un Roi".
+                        </p>
+                        <a href="./personnage.html#harry"><i>Description du
+                                personnage</i></a>
+                    </div>
+                </section>
+
+                <section
+                    style="background-image: url('../img/acteurs/stellan.jpg');"
+                    id="stellan">
+                    <div>
+                        <h3>Stellan Skarsgård</h3>
+                        <h4>Bill Austin</h4>
+                        <!-- <img src="../img/acteurs/stellan.jpg" alt=""> -->
+                        <p>
+                            <strong>Acteur suédois accompli</strong>, connu pour
+                            ses rôles dans des films internationaux. Il se
+                            distingue par son
+                            <strong>jeu intense</strong> et sa capacité à jouer
+                            des personnages <strong>complexes et
+                                profonds</strong>.
+                        </p>
+                        <a href="./personnage.html#bill"><i>Description du
+                                personnage</i></a>
+                    </div>
+                </section>
+
+                <section
+                    style="background-image: url('../img/acteurs/julie.jpg');"
+                    id="julie">
+                    <div>
+                        <h3>Julie Walters</h3>
+                        <h4>Rosie Mulligan</h4>
+                        <!-- <img src="../img/acteurs/julie.jpg" alt=""> -->
+                        <p>
+                            <strong>Actrice britannique chérie</strong>, célèbre
+                            pour ses rôles comiques et dramatiques. Elle apporte
+                            une
+                            <strong>chaleur</strong> et une <strong>humour
+                                unique</strong> à ses personnages.
+                        </p>
+                        <a href="./personnage.html#rosie"><i>Description du
+                                personnage</i></a>
+                    </div>
+                </section>
+
+                <section
+                    style="background-image: url('../img/acteurs/christine.jpg');"
+                    id="christine">
+                    <div>
+                        <h3>Christine Baranski</h3>
+                        <h4>Tanya Chesham-Leigh</h4>
+                        <!-- <img src="../img/acteurs/christine.jpg" alt=""> -->
+                        <p>
+                            <strong>Actrice primée</strong> et reconnue pour son
+                            travail à la fois au cinéma et à la télévision. Elle
+                            est célèbre pour ses rôles
+                            <strong>comiques</strong> et ses personnages
+                            <strong>sophistiqués</strong>.
+                        </p>
+                        <a href="./personnage.html#tanya"><i>Description du
+                                personnage</i></a>
+                    </div>
+                </section>
+
+                <section
+                    style="background-image: url('../img/acteurs/dominic.jpg');"
+                    id="dominic">
+                    <div>
+                        <h3>Dominic Cooper</h3>
+                        <h4>Sky</h4>
+                        <!-- <img src="../img/acteurs/dominic.jpg" alt=""> -->
+                        <p>
+                            <strong>Acteur britannique</strong> connu pour ses
+                            rôles dans des productions cinématographiques et
+                            télévisuelles.
+                            Il apporte une <strong>énergie</strong> et une
+                            <strong>présence captivante</strong> à l'écran.
+                        </p>
+                        <a href="./personnage.html#sky"><i>Description du
+                                personnage</i></a>
+                    </div>
+                </section>
+
+                <section
+                    style="background-image: url('../img/acteurs/ashley.jpg');"
+                    id="ashley">
+                    <div>
+                        <h3>Ashley Lilley</h3>
+                        <h4>Ali</h4>
+                        <!-- <img src="../img/acteurs/ashley.jpg" alt=""> -->
+                        <p>
+                            <strong>Jeune actrice</strong> connue pour son
+                            enthousiasme et son talent. Elle incarne avec brio
+                            des personnages
+                            <strong>pleins de vie</strong> et
+                            <strong>d'énergie</strong>.
+                        </p>
+                        <a href="./personnage.html#ali"><i>Description du
+                                personnage</i></a>
+                    </div>
+                </section>
+
+                <section
+                    style="background-image: url('../img/acteurs/rachel.jpg');"
+                    id="rachel">
+                    <div>
+                        <h3>Rachel McDowall</h3>
+                        <h4>Lisa</h4>
+                        <!-- <img src="../img/acteurs/rachel.jpg" alt=""> -->
+                        <p>
+                            <strong>Actrice talentueuse</strong> avec une
+                            présence marquante. Elle est reconnue pour ses rôles
+                            <strong>dynamiques</strong> et son <strong>énergie
+                                communicative</strong>.
+                        </p>
+                        <a href="./personnage.html#lisa"><i>Description du
+                                personnage</i></a>
+                    </div>
+                </section>
+
+                <section
+                    style="background-image: url('../img/acteurs/juan.jpg');"
+                    id="juan">
+                    <div>
+                        <h3>Juan Pablo Di Pace</h3>
+                        <h4>Petros</h4>
+                        <!-- <img src="../img/acteurs/juan.jpg" alt=""> -->
+                        <p>
+                            <strong>Acteur et chanteur</strong> dynamique, connu
+                            pour ses performances sur scène et à l'écran. Il
+                            apporte
+                            une <strong>énergie débordante</strong> à ses rôles.
+                        </p>
+                        <a href="./personnage.html#petros"><i>Description du
+                                personnage</i></a>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            Léo Cholvy - P24 ©
+
+            <a href="https://beacons.page/mr_pouleto" target="_blank">
+                <i class="fa-solid fa-link"></i>
+            </a>
+            <a href="https://www.instagram.com/leo_cholvy/"
+                target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://github.com/LeoCholvy" target="_blank">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </footer>
+        <script>
+            AOS.init({disable: 'mobile'});
+        </script>
+    </body>
+    <script src="../script/burgerMenu.js"></script>
+    <!-- ce code permet aux utilisateurs sur mobile ou tablette de lire les descriptions -->
+    <script>
+        const sections = document.querySelectorAll('section');
+
+        sections.forEach(section => {
+            section.addEventListener('click', () => {
+                if (section.classList.contains('active-perso')) {
+                    section.classList.remove('active-perso');
+                } else {
+                    sections.forEach(section => {
+                        section.classList.remove('active-perso');
+                    });
+                    section.classList.add('active-perso');
+                }
+            });
+        });
+    </script>
+</html>

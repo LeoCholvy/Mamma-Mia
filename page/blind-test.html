@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="CHOLVY Léo">
+        <meta name="description" content="Site vitrine sur le film Mamma Mia! réalisé par Léo Cholvy dans le cadre de l'UE MM01 de l'Université de Technologie de Troyes au semestre P24">
+        <meta name="keywords" content="mamma, mia, mm01, utt, abba, quizz, blind, test, representation, acteur, personnage, bande, son, synopsis, resume, vitrine, presentation, film, comedie, musicale, dance, romance">
+        <title>Blind-test</title>
+        <!-- icon ico-->
+        <link rel="icon" type="image/x-icon" href="../img/favicon_40.png" />
+
+        <link rel="stylesheet" href="../style/style.css" />
+        <link rel="stylesheet" href="../style/dispo.css">
+    </head>
+    <script src="https://kit.fontawesome.com/062ed41b50.js"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .quizz-container span {
+            margin: 1rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .quizz-container p {
+            text-align: center;
+        }
+        .action {
+            width: 4rem;
+            height: 4rem;
+            background-color: #f2f9fd;
+            text-align: center;
+            line-height: 4rem;
+            border-radius: 50%;
+        }
+        .action.correct {
+            background-color: rgb(17, 117, 8);
+        }
+        .action.correct i {
+            color: #f2f9fd;
+        }
+        .action.incorrect {
+            background-color: rgb(207, 45, 17);
+        }
+        .action.incorrect i {
+            color: #f2f9fd;
+        }
+        .action i {
+            vertical-align: middle;
+            font-size: 2rem;
+            color: #34739e;
+        }
+        .action:hover {
+            background-color: #34739e;
+        }
+        .action:hover i, .action:active:active i {
+            color: #f2f9fd;
+        }
+        .action:active {
+            background-color: #9e5f34;
+        }
+        /* pour que ce soit centré */
+        .action i.fa-play {
+            transform: translateX(0.05em) translateY(-0.05em);
+        }
+        .action i.fa-pause {
+            transform: translateY(-0.05em);
+        }
+        input {
+            width: fit-content;
+            height: fit-content;
+            margin: 0;
+            margin-left: 2rem;
+        }
+        .quizz-container > a {
+            width: 100%;
+            text-align: center;
+            display: block;
+        }
+        .quizz-container button {
+            margin: 0.5rem;
+        }
+        /* .vizualiser {
+            height: 020px;
+            width: 100%;
+            background-color: red;
+            top: 200%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        } */
+        @media only screen and (max-width: 425px) {
+            .quizz-container span {
+                flex-direction: column;
+            }
+            input {
+                margin: 0;
+                margin-top: 0.6rem;
+            }
+        }
+    </style>
+    <body>
+        <header>
+            <div id="burger-bg"></div>
+            <a href="../index.html" title="vers l'accueil" id="logo"><h2>MAMMA
+                    MIA!</h2></a>
+            <i class="fa-solid fa-2xl fa-bars" id="burger-icon"
+                onclick="toggleBurger()"></i>
+            <nav>
+                <a href="resume.html">Résumé</a>
+                <div class="dropdown">
+                    <a class="dropdown-btn">Rôles<i
+                            class="fa-solid fa-caret-down"></i><i
+                            class="fa-solid fa-caret-up"></i></a>
+                    <div class="dropdown-content">
+                        <a href="personnage.html">Personnages</a>
+                        <a href="acteur.html">Acteurs</a>
+                    </div>
+                </div>
+                <a href="representation.html">Représentation</a>
+                <a href="bande-son.html">Bandes sons</a>
+                <div class="dropdown">
+                    <a class="dropdown-btn" style="font-weight: bold;">Jeux<i
+                            class="fa-solid fa-caret-down"></i><i
+                            class="fa-solid fa-caret-up"></i></a>
+                    <div class="dropdown-content">
+                        <a href="quizz.html">Quiz</a>
+                        <a href="blind-test.html" style="font-weight: bold;">Blind-test</a>
+                    </div>
+                </div>
+                <a href="source.html">Sources</a>
+                <a href="contact.html">Contacts</a>
+            </nav>
+        </header>
+
+        <!-- audios -->
+        <audio src="../audio/honey_honey.mp3" id="audio_honey"></audio>
+        <audio src="../audio/dancing_queen.mp3" id="audio_dacing"></audio>
+        <audio src="../audio/mamma_mia.mp3" id="audio_mamma"></audio>
+        <audio src="../audio/money_money_money.mp3" id="audio_money"></audio>
+        <audio src="../audio/lay_all_your_love.mp3" id="audio_lay"></audio>
+        <audio src="../audio/gimme.mp3" id="audio_gimme"></audio>
+
+        <main>
+            <section class="quizz-container" class="quizz-container" data-aos="zoom-in-up" data-aos-duration="500">
+                <h2 style="text-align: center;">Blind-test</h2>
+                <span id="honey">
+                    <!-- <div class="vizualiser"></div> -->
+                    <div class="action" onclick="play('honey')">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <input type="text" placeholder="Nom de la musique"
+                        onkeydown="check(event, 'honey')">
+                </span>
+                <span id="dancing">
+                    <!-- <div class="vizualiser"></div> -->
+                    <div class="action" onclick="play('dancing')">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <input type="text" placeholder="Nom de la musique"
+                        onkeydown="check(event, 'dancing')">
+                </span>
+                <span id="mamma">
+                    <!-- <div class="vizualiser"></div> -->
+                    <div class="action" onclick="play('mamma')">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <input type="text" placeholder="Nom de la musique"
+                        onkeydown="check(event, 'mamma')">
+                </span>
+                <span id="money">
+                    <!-- <div class="vizualiser"></div> -->
+                    <div class="action" onclick="play('money')">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <input type="text" placeholder="Nom de la musique"
+                        onkeydown="check(event, 'money')">
+                </span>
+                <span id="lay">
+                    <!-- <div class="vizualiser"></div> -->
+                    <div class="action" onclick="play('lay')">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <input type="text" placeholder="Nom de la musique"
+                        onkeydown="check(event, 'lay')">
+                </span>
+                <span id="gimme">
+                    <!-- <div class="vizualiser"></div> -->
+                    <div class="action" onclick="play('gimme')">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <input type="text" placeholder="Nom de la musique"
+                        onkeydown="check(event, 'gimme')">
+                </span>
+                <p>Appuyez sur ENTER pour valider</p>
+                <a href="../page/bande-son.html"><button>Vers la page Bande
+                        Sons</button></a>
+            </section>
+        </main>
+
+        <footer>
+            Léo Cholvy - P24 ©
+
+            <a href="https://beacons.page/mr_pouleto" target="_blank">
+                <i class="fa-solid fa-link"></i>
+            </a>
+            <a href="https://www.instagram.com/leo_cholvy/"
+                target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://github.com/LeoCholvy" target="_blank">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </footer>
+        <script>
+            AOS.init({disable: 'mobile'});
+        </script>
+    </body>
+    <script src="../script/burgerMenu.js"></script>
+    <script src="../script/blind-test.js"></script>
+</html>

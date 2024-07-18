@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="CHOLVY Léo">
+        <meta name="description" content="Site vitrine sur le film Mamma Mia! réalisé par Léo Cholvy dans le cadre de l'UE MM01 de l'Université de Technologie de Troyes au semestre P24">
+        <meta name="keywords" content="mamma, mia, mm01, utt, abba, quizz, blind, test, representation, acteur, personnage, bande, son, synopsis, resume, vitrine, presentation, film, comedie, musicale, dance, romance">
+        <title>Quizz</title>
+        <!-- icon ico-->
+        <link rel="icon" type="image/x-icon" href="../img/favicon_40.png" />
+
+        <link rel="stylesheet" href="../style/style.css" />
+        <link rel="stylesheet" href="../style/dispo.css">
+    </head>
+    <script src="https://kit.fontawesome.com/062ed41b50.js"
+        crossorigin="anonymous"></script>
+    <!-- chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .score-container {
+            width: fit-content;
+            float: right;
+            margin: 0 0 0 1rem;
+            padding: 0.5rem;
+            border-radius: 0.5em;
+        }
+        .quizz-container {
+            width: 70%;
+        }
+        .question {
+            font-size: 1.5rem;
+            text-align: left;
+            margin-top: 0.3rem;
+            margin-bottom: 1rem;
+        }
+        span {
+            vertical-align: baseline;
+        }
+        .answers {
+            width: 95%;
+            margin: 0 auto;
+            padding: 1em;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 1em;
+            height: 15em;
+        }
+        .answers button {
+            margin: 0;
+            border-width: 2px;
+            transition: 0.5s;
+        }
+        .answers button:hover {
+            font-size: 1.3rem;
+        }
+        .correct:active {
+            background-color: rgb(17, 117, 8);
+        }
+        .action {
+            width: fit-content;
+            min-width: 60%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0.5rem;
+            margin: 0 auto;
+        }
+        .action button {
+            margin: 0;
+            width: 10em;
+            padding: 0.3em;
+            border-radius: 0.5em;
+        }
+        #precedent {
+            background-color: rgb(17, 117, 8);
+        }
+        #restart {
+            background-color: rgb(138, 5, 5);
+        }
+        .perf {
+            display: none;
+            width: fit-content;
+            margin: 0 auto;
+            height: fit-content;
+        }
+        .perf {
+            height: 15em;
+            width: 60%;
+        }
+        @media only screen and (max-width: 768px) {
+            .action {
+                justify-content: space-between;
+                width: 80%;
+            }
+            .perf {
+                width: 100%;
+            }
+        }
+        @media only screen and (max-width: 425px) {
+            .action {
+                flex-direction: column;
+                gap: 0.5em;
+            }
+            .answers {
+                display: flex;
+                flex-direction: column;
+                height: fit-content;
+            }
+            /* sinon le bouton reste blanc apres avoir cliquer dessus... */
+            .answers button:hover, .answers button:active {
+                font-size: inherit;
+                color: white;
+                background-color: #34739e;
+            }
+        }
+    </style>
+    <body>
+        <header>
+            <div id="burger-bg"></div>
+            <a href="../index.html" title="vers l'accueil" id="logo"><h2>MAMMA
+                    MIA!</h2></a>
+            <i class="fa-solid fa-2xl fa-bars" id="burger-icon"
+                onclick="toggleBurger()"></i>
+            <nav>
+                <a href="resume.html">Résumé</a>
+                <div class="dropdown">
+                    <a class="dropdown-btn">Rôles<i
+                            class="fa-solid fa-caret-down"></i><i
+                            class="fa-solid fa-caret-up"></i></a>
+                    <div class="dropdown-content">
+                        <a href="personnage.html">Personnages</a>
+                        <a href="acteur.html">Acteurs</a>
+                    </div>
+                </div>
+                <a href="representation.html">Représentation</a>
+                <a href="bande-son.html">Bandes sons</a>
+                <div class="dropdown">
+                    <a class="dropdown-btn" style="font-weight: bold;">Jeux<i
+                            class="fa-solid fa-caret-down"></i><i
+                            class="fa-solid fa-caret-up"></i></a>
+                    <div class="dropdown-content">
+                        <a href="quizz.html" style="font-weight: bold;">Quiz</a>
+                        <a href="blind-test.html">Blind-test</a>
+                    </div>
+                </div>
+                <a href="source.html">Sources</a>
+                <a href="contact.html">Contacts</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- quizz responsive -->
+            <!-- chaque question a 2 ou 4 reponses possibles -->
+            <section class="quizz-container" data-aos="zoom-in-up"
+                data-aos-duration="500">
+                <section class="score-container">
+                    <p>Score : <span>1</span></p>
+                </section>
+                <!-- question -->
+                <p class="question"></p>
+                <!-- réponses possibles -->
+                <div class="answers">
+                    <button id="A"><span></span></button>
+                    <button id="B"><span></span></button>
+                    <button id="C"><span></span></button>
+                    <button id="D"><span></span></button>
+                </div>
+                <!-- graphique de performances (chart.js) -->
+                <div class="perf">
+                    <canvas id="perf"></canvas>
+                </div>
+                <!-- actions -->
+                <div class="action">
+                    <button id="precedent">Précédent</button>
+                    <button id="restart">Rejouer</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            Léo Cholvy - P24 ©
+
+            <a href="https://beacons.page/mr_pouleto" target="_blank">
+                <i class="fa-solid fa-link"></i>
+            </a>
+            <a href="https://www.instagram.com/leo_cholvy/"
+                target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://github.com/LeoCholvy" target="_blank">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </footer>
+        <script>
+            AOS.init({disable: 'mobile'});
+        </script>
+    </body>
+    <script src="../script/burgerMenu.js"></script>
+    <script src="../script/quizz.js"></script>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="CHOLVY Léo">
+        <meta name="description" content="Site vitrine sur le film Mamma Mia! réalisé par Léo Cholvy dans le cadre de l'UE MM01 de l'Université de Technologie de Troyes au semestre P24">
+        <meta name="keywords" content="mamma, mia, mm01, utt, abba, quizz, blind, test, representation, acteur, personnage, bande, son, synopsis, resume, vitrine, presentation, film, comedie, musicale, dance, romance">
+        <title>Accueil</title>
+        <!-- favicon -->
+        <link rel="icon" type="image/x-icon" href="img/favicon_40.png" />
+
+        <!-- style général -->
+        <link rel="stylesheet" href="style/style.css" />
+        <!-- disposition avec un aside en plus du main -->
+        <link rel="stylesheet" href="style/dispo_grid.css">
+    </head>
+    <!-- icons -->
+    <script src="https://kit.fontawesome.com/062ed41b50.js"
+        crossorigin="anonymous"></script>
+    <!-- animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .accroche {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin: 2rem 0;
+            box-sizing: border-box; 
+            width: 95%;
+        }
+        .accroche img {
+            width: 90%;
+            flex-shrink: 0;
+            z-index: -1;
+            border-radius: 2em;
+        }
+        .accroche h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            font-size: 3em;
+            font-family: ballet_harmony;
+            color: #f2f9fd;
+            z-index: 1;
+
+            font-size: 5em;
+            width: fit-content;
+            white-space: nowrap;
+            padding: 0 0.5em 0 0;
+        }
+        .accroche h1.start {
+            animation: scroll-left1 40s linear infinite;
+        }
+        .accroche h1.end {
+            animation: scroll-left 40s linear infinite;
+        }
+        .accroche:hover {
+            cursor: url("img/cursor_32.png"), wait;
+        }
+        .accroche:hover h1 {
+            animation-play-state: paused;
+        }
+        aside img {
+            width: 100%;
+        }
+
+        /* texte infini d'accroche */
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(50%) translateY(-50%);
+            }
+            100% {
+                transform: translateX(-50%) translateY(-50%);
+            }
+        }
+        @keyframes scroll-left1 {
+            0% {
+                transform: translateX(-50%) translateY(-50%);
+            }
+            100% {
+                transform: translateX(-150%) translateY(-50%);
+            }
+        }
+    </style>
+    <body>
+        <!-- on utilise un container pour éviter les conflits avec la disposition (car body ne fait que 100vh de haut pour la scrollbar) -->
+        <div class="container">
+            <header>
+                <!-- div pour le fond du menu burger -->
+                <div id="burger-bg"></div>
+                <a title="vers l'accueil" id="logo"><h2>MAMMA MIA!</h2></a>
+                <!-- icon pour le menu burger -->
+                <i class="fa-solid fa-2xl fa-bars" id="burger-icon"
+                    onclick="toggleBurger()"></i>
+                <nav>
+                    <a href="page/resume.html">Résumé</a>
+                    <div class="dropdown">
+                        <a class="dropdown-btn">Rôles<i
+                                class="fa-solid fa-caret-down"></i><i
+                                class="fa-solid fa-caret-up"></i></a>
+                        <div class="dropdown-content">
+                            <a href="page/personnage.html">Personnages</a>
+                            <a href="page/acteur.html">Acteurs</a>
+                        </div>
+                    </div>
+                    <a href="page/representation.html">Représentation</a>
+                    <a href="page/bande-son.html">Bandes sons</a>
+                    <div class="dropdown">
+                        <a class="dropdown-btn">Jeux<i
+                                class="fa-solid fa-caret-down"></i><i
+                                class="fa-solid fa-caret-up"></i></a>
+                        <div class="dropdown-content">
+                            <a href="page/quizz.html">Quiz</a>
+                            <a href="page/blind-test.html">Blind-test</a>
+                        </div>
+                    </div>
+                    <a href="page/source.html">Sources</a>
+                    <a href="page/contact.html">Contacts</a>
+                </nav>
+            </header>
+            <main>
+                <div class="accroche" data-aos="zoom-in-up"
+                    data-aos-duration="200" data-aos-easing="ease-out">
+                    <img src="./img/accroche.jpg" alt>
+                    <!-- 2 fois le text pour pas qu'il n'y ait d'interuption dans le défillement de la phrase d'accroche -->
+                    <h1 class="start">
+                        Honey, honey, let me feel it Ah-ha, honey, honey Honey,
+                        honey, don't conceal it Ah-ha, honey, honey
+                    </h1>
+                    <h1 class="end">
+                        Honey, honey, let me feel it Ah-ha, honey, honey Honey,
+                        honey, don't conceal it Ah-ha, honey, honey
+                    </h1>
+                </div>
+            </main>
+            <!-- rapide resumé des représentations -->
+            <aside class="section" title="Représentations" data-aos="fade-left"
+                data-aos-easing="ease-out" data-aos-duration="100">
+                <a href="./page/representation.html" title="voir plus">
+                    <h3>du 21 octobre au 21 janvier 2024</h3>
+                    <p class="quote-style">
+                        Le Musical qui perfomeront au Casino de Paris
+                        <br>
+                        Découvrez les danseurs.euses, chanteurs.euses et
+                        comédiens.nes de la troupe Mamma Mia!
+                    </p>
+                    <h3>du 21 octobre au 21 janvier 2024</h3>
+                    <p class="quote-style">
+                        Le Musical qui perfomeront au Casino de Paris
+                    </p>
+                    <img src="./img/repr.webp" alt>
+                </a>
+            </aside>
+            <footer>
+                Léo Cholvy - P24 ©
+
+                <a href="https://beacons.page/mr_pouleto" target="_blank">
+                    <i class="fa-solid fa-link"></i>
+                </a>
+                <a href="https://www.instagram.com/leo_cholvy/"
+                    target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://github.com/LeoCholvy" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </footer>
+        </div>
+    </body>
+    <script src="script/burgerMenu.js"></script>
+    <!-- animation d'apparition des divs -->
+    <script>
+        AOS.init({disable: 'mobile'});
+    </script>
+</html>

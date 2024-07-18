@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="CHOLVY Léo">
+        <meta name="description" content="Site vitrine sur le film Mamma Mia! réalisé par Léo Cholvy dans le cadre de l'UE MM01 de l'Université de Technologie de Troyes au semestre P24">
+        <meta name="keywords" content="mamma, mia, mm01, utt, abba, quizz, blind, test, representation, acteur, personnage, bande, son, synopsis, resume, vitrine, presentation, film, comedie, musicale, dance, romance">
+        <title>Contacts</title>
+        <!-- icon ico-->
+        <link rel="icon" type="image/x-icon" href="../img/favicon_40.png" />
+
+        <link rel="stylesheet" href="../style/style.css" />
+        <link rel="stylesheet" href="../style/dispo.css">
+    </head>
+    <script src="https://kit.fontawesome.com/062ed41b50.js"
+        crossorigin="anonymous"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        main .section {
+            display: flex;
+            flex-direction: column;
+        }
+        main .section input[type="submit"] {
+            margin-top: 0.5rem; margin-bottom: 0;
+            padding-left: 1em; padding-right: 1em;
+            align-self: center;
+            width: fit-content;
+            min-width: 40%;
+        }
+    </style>
+    <body>
+        <header>
+            <div id="burger-bg"></div>
+            <a href="../index.html" title="vers l'accueil" id="logo"><h2>MAMMA
+                    MIA!</h2></a>
+            <i class="fa-solid fa-2xl fa-bars" id="burger-icon"
+                onclick="toggleBurger()"></i>
+            <nav>
+                <a href="resume.html">Résumé</a>
+                <div class="dropdown">
+                    <a class="dropdown-btn">Rôles<i
+                            class="fa-solid fa-caret-down"></i><i
+                            class="fa-solid fa-caret-up"></i></a>
+                    <div class="dropdown-content">
+                        <a href="personnage.html">Personnages</a>
+                        <a href="acteur.html">Acteurs</a>
+                    </div>
+                </div>
+                <a href="representation.html">Représentation</a>
+                <a href="bande-son.html">Bandes sons</a>
+                <div class="dropdown">
+                    <a class="dropdown-btn">Jeux<i
+                            class="fa-solid fa-caret-down"></i><i
+                            class="fa-solid fa-caret-up"></i></a>
+                    <div class="dropdown-content">
+                        <a href="quizz.html">Quiz</a>
+                        <a href="blind-test.html">Blind-test</a>
+                    </div>
+                </div>
+                <a href="source.html">Sources</a>
+                <a href="contact.html" style="font-weight: bold;">Contacts</a>
+            </nav>
+        </header>
+
+        <main>
+            <!-- formulaire :
+                nom, statut, mail, message
+            -->
+            <form class="section" data-aos="zoom-in-up" data-aos-duration="300"
+                data-aos-easing="ease-out">
+                <label for="nom">Votre nom complet (facultatif):</label>
+                <input type="text" name="nom" id="nom" placeholder="NOM Prénom">
+                <label for="statut">Votre statut (facultatif):</label>
+                <input type="text" list="statuts" name="statut" id="statut"
+                    placeholder="Etudiant">
+                <datalist id="statuts">
+                    <option value="Etudiant"></option>
+                    <option value="Etudiant UTT"></option>
+                    <option value="Autre"></option>
+                </datalist>
+                <label for="mail">Votre adresse mail (facultatif):</label>
+                <input type="mail" name="nom" id="nom" placeholder="a@utt.fr">
+                <label for="message">Votre message:</label>
+                <textarea name="message" id="message" cols="30"
+                    rows="10"></textarea>
+                <input type="submit" value="Envoyer">
+            </form>
+        </main>
+
+        <footer>
+            Léo Cholvy - P24 ©
+
+            <a href="https://beacons.page/mr_pouleto" target="_blank">
+                <i class="fa-solid fa-link"></i>
+            </a>
+            <a href="https://www.instagram.com/leo_cholvy/"
+                target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://github.com/LeoCholvy" target="_blank">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </footer>
+        <script>
+            AOS.init({disable: 'mobile'});
+        </script>
+    </body>
+    <script src="../script/burgerMenu.js"></script>
+</html>

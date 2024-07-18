@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="CHOLVY Léo">
+        <meta name="description" content="Site vitrine sur le film Mamma Mia! réalisé par Léo Cholvy dans le cadre de l'UE MM01 de l'Université de Technologie de Troyes au semestre P24">
+        <meta name="keywords" content="mamma, mia, mm01, utt, abba, quizz, blind, test, representation, acteur, personnage, bande, son, synopsis, resume, vitrine, presentation, film, comedie, musicale, dance, romance">
+        <title>Représentations</title>
+        <!-- icon ico-->
+        <link rel="icon" type="image/x-icon" href="../img/favicon_40.png" />
+
+        <link rel="stylesheet" href="../style/style.css" />
+        <link rel="stylesheet" href="../style/dispo.css">
+    </head>
+    <script src="https://kit.fontawesome.com/062ed41b50.js"
+        crossorigin="anonymous"></script>
+    <style>
+        section.timeline > h2 {
+            font-size: 2rem;
+            width: 100%;
+            text-align: center;
+            margin: 15px 0;
+        }
+        main > section {
+            width: 74%;
+            background: linear-gradient(to bottom, #f2f9fd53, #34749e56);
+        }
+
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+        :root {
+        --dark-blue: #032e4d;
+        --turquoise: #34739e;
+        }
+
+        .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        }
+
+        h1 {
+        font-size: 2.5rem;
+        }
+
+        /* TIMELINE
+        –––––––––––––––––––––––––––––––––––––––––––––––––– */
+        .timeline {
+        padding: 50px 20px;
+        padding-top: 0;
+        margin: 0 auto;
+        margin-top: 2rem;
+        max-width: 1000px;
+        color: var(--dark-blue);
+        }
+
+        .timeline ol {
+        position: relative;
+        list-style: none;
+        width: fit-content;
+        }
+
+        .timeline ol::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        background: var(--turquoise);
+        }
+        .timeline ol li {
+            width: fit-content;
+        }
+
+        .timeline ol li .item-inner {
+        padding: 20px 0 20px 180px;
+        margin-bottom: 8vh;
+        }
+        
+        .timeline ol li .item-inner:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline ol li .time-wrapper {
+        position: relative;
+        font-size: 3rem;
+        font-weight: bold;
+        line-height: 0.9;
+        }
+
+        .timeline ol li .time-wrapper::before,
+        .timeline ol li .time-wrapper::after {
+        content: "";
+        position: absolute;
+        background: var(--turquoise);
+        }
+
+        .timeline ol li .time-wrapper::before {
+        top: 50%;
+        left: -180px;
+        transform: translateY(-50%);
+        width: 0;
+        height: 3px;
+        transition: width 0.8s linear;
+        }
+
+        .timeline ol li .time-wrapper::after {
+        top: calc(50% - 8px);
+        left: -60px;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        transform: scale(0);
+        transform-origin: left center;
+        transition: all 0.4s linear;
+        }
+
+        .timeline ol li time,
+        .timeline ol li .details > * {
+        opacity: 0;
+        transition: 0.5s;
+        }
+
+        .timeline ol li time {
+        display: inline-block;
+        transform: translateY(-30px);
+        }
+
+        .timeline ol li .details > * {
+        transform: translateY(30px);
+        }
+
+        .timeline ol li .details h3 {
+        font-size: 2rem;
+        line-height: 1;
+        margin: 15px 0;
+        }
+
+        /* ANIMATION STYLES
+        –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+        .timeline ol li.in-view .time-wrapper::before {
+        width: 120px;
+        }
+
+        .timeline ol li.in-view .time-wrapper::after {
+        transition-delay: 0.8s;
+        transform: scale(1.5);
+        }
+
+        .timeline ol li.in-view time,
+        .timeline ol li.in-view .details > * {
+        opacity: 1;
+        transform: none;
+        }
+
+        .timeline ol li.in-view time {
+        transition-delay: 1.3s;
+        }
+
+        .timeline ol li.in-view .details h3 {
+        transition-delay: 1.5s;
+        }
+
+        .timeline ol li.in-view .details p {
+        transition-delay: 1.7s;
+        }
+
+        /* MQ STYLES
+        –––––––––––––––––––––––––––––––––––––––––––––––––– */
+        @media (max-width: 700px) {
+        .timeline {
+            width: 90%;
+        }
+        .timeline ol li .item-inner {
+            padding: 20px 40px;
+        }
+
+        .timeline ol li .time-wrapper::before {
+            display: none;
+        }
+
+        .timeline ol li .time-wrapper::after {
+            left: -45px;
+            transform-origin: center;
+        }
+
+        .timeline ol li.in-view .time-wrapper::after {
+            transition-delay: 0s;
+        }
+
+        .timeline ol li.in-view time {
+            transition-delay: 0.5s;
+        }
+
+        .timeline ol li.in-view .details h3 {
+            transition-delay: 0.7s;
+        }
+
+        .timeline ol li.in-view .details p {
+            transition-delay: 0.9s;
+        }
+        }
+    </style>
+    <body>
+        <header>
+            <div id="burger-bg"></div>
+            <a href="../index.html" title="vers l'accueil" id="logo"><h2>MAMMA
+                    MIA!</h2></a>
+            <i class="fa-solid fa-2xl fa-bars" id="burger-icon"
+                onclick="toggleBurger()"></i>
+            <nav>
+                <a href="resume.html">Résumé</a>
+                <div class="dropdown">
+                    <a class="dropdown-btn">Rôles<i
+                            class="fa-solid fa-caret-down"></i><i
+                            class="fa-solid fa-caret-up"></i></a>
+                    <div class="dropdown-content">
+                        <a href="personnage.html">Personnages</a>
+                        <a href="acteur.html">Acteurs</a>
+                    </div>
+                </div>
+                <a href="representation.html" style="font-weight: bold;">Représentation</a>
+                <a href="bande-son.html">Bandes sons</a>
+                <div class="dropdown">
+                    <a class="dropdown-btn">Jeux<i
+                            class="fa-solid fa-caret-down"></i><i
+                            class="fa-solid fa-caret-up"></i></a>
+                    <div class="dropdown-content">
+                        <a href="quizz.html">Quiz</a>
+                        <a href="blind-test.html">Blind-test</a>
+                    </div>
+                </div>
+                <a href="source.html">Sources</a>
+                <a href="contact.html">Contacts</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="timeline">
+                <h2>Représentations</h2>
+                <!-- liste des représentations pour la timeline -->
+                <ol>
+                    <li>
+                        <div class="item-inner">
+                            <div class="time-wrapper">
+                                <time>2007</time>
+                            </div>
+                            <div class="details">
+                                <h3>Île de Skopelos, Grèce</h3>
+                                <p>La plupart des scènes extérieures ont été
+                                    tournées sur l'île de Skopelos, notamment à
+                                    la plage de Kastani pour les chansons
+                                    "Lay All Your Love on Me" et
+                                    "Does Your Mother Know", ainsi qu'à la
+                                    chapelle Agios Ioannis pour la scène du
+                                    mariage final.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-inner">
+                            <div class="time-wrapper">
+                                <time>2007</time>
+                            </div>
+                            <div class="details">
+                                <h3>Île de Skiathos, Grèce</h3>
+                                <p>Le vieux port de Skiathos a été utilisé pour
+                                    la scène où Harry, Bill et Sam arrivent par
+                                    bateau.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-inner">
+                            <div class="time-wrapper">
+                                <time>2007</time>
+                            </div>
+                            <div class="details">
+                                <h3>Studios Pinewood et Shepperton, Londres</h3>
+                                <p>Les décors intérieurs, comme la villa de
+                                    Donna, ont été construits dans ces studios
+                                    britanniques.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-inner">
+                            <div class="time-wrapper">
+                                <time>2007</time>
+                            </div>
+                            <div class="details">
+                                <h3>Damouhari, Grèce continentale</h3>
+                                <p>Le quai de Damouhari a servi de lieu de
+                                    tournage pour la scène où Rosie et Tanya
+                                    chantent "Dancing Queen".</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-inner">
+                            <div class="time-wrapper">
+                                <time>2008</time>
+                            </div>
+                            <div class="details">
+                                <h3>Sortie et succès du film</h3>
+                                <p>La sortie du film en 2008 a fait connaître
+                                    les îles des Sporades comme destinations
+                                    touristiques.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-inner">
+                            <div class="time-wrapper">
+                                <time>2015</time>
+                            </div>
+                            <div class="details">
+                                <h3>Visites guidées des lieux de tournage</h3>
+                                <p>Depuis 2015, des visites guidées des lieux de
+                                    tournage sont organisées, permettant aux
+                                    fans de revivre les moments emblématiques du
+                                    film.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-inner">
+                            <div class="time-wrapper">
+                                <time>2019</time>
+                            </div>
+                            <div class="details">
+                                <h3>Ouverture d'un musée Mamma Mia!</h3>
+                                <p>Un musée dédié au film Mamma Mia! a ouvert
+                                    ses portes en 2019 sur l'île de Skopelos,
+                                    attirant de nombreux fans et touristes.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-inner">
+                            <div class="time-wrapper">
+                                <time>2020</time>
+                            </div>
+                            <div class="details">
+                                <h3>Impact touristique post-Mamma Mia!</h3>
+                                <p>Les îles de Skopelos et Skiathos continuent
+                                    d'attirer des touristes grâce à la
+                                    popularité du film.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-inner">
+                            <div class="time-wrapper">
+                                <time>2021</time>
+                            </div>
+                            <div class="details">
+                                <h3>Documentaire sur les lieux de tournage</h3>
+                                <p>En 2021, un documentaire sur les lieux de
+                                    tournage du film a été réalisé, mettant en
+                                    lumière la beauté des îles grecques.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-inner">
+                            <div class="time-wrapper">
+                                <time>2023</time>
+                            </div>
+                            <div class="details">
+                                <h3>Commémoration des 15 ans du film</h3>
+                                <p>En 2023, les fans ont célébré le <strong>15e
+                                        anniversaire</strong> de Mamma Mia! avec
+                                    des événements spéciaux et des visites
+                                    guidées des lieux de tournage.</p>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+        </main>
+
+        <footer>
+            Léo Cholvy - P24 ©
+
+            <a href="https://beacons.page/mr_pouleto" target="_blank">
+                <i class="fa-solid fa-link"></i>
+            </a>
+            <a href="https://www.instagram.com/leo_cholvy/"
+                target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://github.com/LeoCholvy" target="_blank">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </footer>
+    </body>
+    <script src="../script/burgerMenu.js"></script>
+    <script src="../script/timeline.js"></script>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="CHOLVY Léo">
+        <meta name="description" content="Site vitrine sur le film Mamma Mia! réalisé par Léo Cholvy dans le cadre de l'UE MM01 de l'Université de Technologie de Troyes au semestre P24">
+        <meta name="keywords" content="mamma, mia, mm01, utt, abba, quizz, blind, test, representation, acteur, personnage, bande, son, synopsis, resume, vitrine, presentation, film, comedie, musicale, dance, romance">
+        <title>Personnages</title>
+        <!-- icon ico-->
+        <link rel="icon" type="image/x-icon" href="../img/favicon_40.png" />
+
+        <!-- style général -->
+        <link rel="stylesheet" href="../style/style.css" />
+        <!-- disposition normale (sans le aside) -->
+        <link rel="stylesheet" href="../style/dispo.css">
+    </head>
+    <!-- icons -->
+    <script src="https://kit.fontawesome.com/062ed41b50.js"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        main > section h2 {
+            font-size: 1.3rem;
+        }
+        main > section , main > div {
+            position: static;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            width: 90%;
+        }
+        main > section {
+            padding-top: 0.5rem; padding-bottom: 0.5rem;
+        }
+        .container section {
+            margin: 0;
+            width: 15rem;
+            min-height: 20rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        .container div {
+            padding: 1rem;
+            /* for mobile */
+            -webkit-backdrop-filter: blur(5px);
+            /* for desktop */
+            backdrop-filter: blur(10px);
+            mask: linear-gradient(
+                to top,
+                rgba(0, 0, 0, 1) 80%,
+                rgba(0, 0, 0, 0) 100%
+            );
+            border-radius: 0 0 1rem 1rem;
+            padding-top: 20%;
+            background-color: #f2f9fda5;
+            opacity: 0;
+            transition: opacity 0.7s ease-in-out;
+        }
+        .container section:hover div, .container section.active-perso div {
+            opacity: 1;
+        }
+        .container p {
+            text-align: justify;
+        }
+        .container h4 {
+            color: #9e5f34;
+        }
+        .container h4::before {
+            content: "Joué par: ";
+            font-size: 0.8em;
+        }
+        .container h3 {
+            margin: 0;
+        }
+        .container a {
+            text-decoration: underline;
+        }
+    </style>
+    <body>
+        <header>
+            <div id="burger-bg"></div>
+            <a href="../index.html" title="vers l'accueil" id="logo"><h2>MAMMA
+                    MIA!</h2></a>
+            <i class="fa-solid fa-2xl fa-bars" id="burger-icon"
+                onclick="toggleBurger()"></i>
+            <nav>
+                <a href="resume.html">Résumé</a>
+                <div class="dropdown">
+                    <a class="dropdown-btn" style="font-weight: bold;">Rôles<i
+                            class="fa-solid fa-caret-down"></i><i
+                            class="fa-solid fa-caret-up"></i></a>
+                    <div class="dropdown-content">
+                        <a href="personnage.html" style="font-weight: bold;">Personnages</a>
+                        <a href="acteur.html">Acteurs</a>
+                    </div>
+                </div>
+                <a href="representation.html">Représentation</a>
+                <a href="bande-son.html">Bandes sons</a>
+                <div class="dropdown">
+                    <a class="dropdown-btn">Jeux<i
+                            class="fa-solid fa-caret-down"></i><i
+                            class="fa-solid fa-caret-up"></i></a>
+                    <div class="dropdown-content">
+                        <a href="quizz.html">Quiz</a>
+                        <a href="blind-test.html">Blind-test</a>
+                    </div>
+                </div>
+                <a href="source.html">Sources</a>
+                <a href="contact.html">Contacts</a>
+            </nav>
+        </header>
+
+        <main>
+            <section><h2>Personnages du film</h2></section>
+            <!-- container en flex pour le responsive -->
+            <div class="container">
+                <!-- toutes les sections ont:
+                    - un id
+                    - une image
+                    - une description
+                    - et un lien vers la fiche equivalent dans la page personnage
+                -->
+                <section
+                    style="background-image: url('../img/personnages/sophie.jpg');"
+                    id="sophie">
+                    <div>
+                        <h3>Sophie Sheridan</h3>
+                        <h4>Amanda Seyfried</h4>
+                        <!-- <img src="../img/personnages/sophie.jpg" alt=""> -->
+                        <p>
+                            <strong>Fille énergique et déterminée</strong> de
+                            Donna, elle cherche à découvrir
+                            <strong>l'identité de son père biologique</strong>
+                            avant son mariage. Jeune, brillante et
+                            <strong>pleine d'enthousiasme</strong>, elle a
+                            grandi sur l'île mais est prête à partir.
+                        </p>
+                        <a href="./acteur.html#amanda"><i>Description de
+                                l'actrice</i></a>
+                    </div>
+                </section>
+
+                <section
+                    style="background-image: url('../img/personnages/sam.jpg');"
+                    id="sam">
+                    <div>
+                        <h3>Sam Carmichael</h3>
+                        <h4>Pierce Brosnan</h4>
+                        <!-- <img src="../img/personnages/sam.jpg" alt=""> -->
+                        <p>
+                            Un des trois <strong>potentiels pères</strong> de
+                            Sophie. Riche architecte
+                            <strong>charmant et confiant</strong>, il regrette
+                            d'avoir quitté Donna et se retrouve
+                            <strong>divorcé</strong> en sa présence.
+                        </p>
+                        <a href="./acteur.html#pierce"><i>Description de
+                                l'acteur</i></a>
+                    </div>
+                </section>
+
+                <section
+                    style="background-image: url('../img/personnages/harry.jpg');"
+                    id="harry">
+                    <div>
+                        <h3>Harry Bright</h3>
+                        <h4>Colin Firth</h4>
+                        <!-- <img src="../img/personnages/harry.jpg" alt=""> -->
+                        <p>
+                            Un autre des <strong>potentiels pères</strong> de
+                            Sophie. Ancien musicien devenu
+                            <strong>banquier londonien respecté</strong>.
+                            Personnage attachant qui cherche à se
+                            <strong>racheter de ses erreurs passées</strong>.
+                        </p>
+                        <a href="./acteur.html#colin"><i>Description de
+                                l'acteur</i></a>
+                    </div>
+                </section>
+
+                <section
+                    style="background-image: url('../img/personnages/bill.jpg');"
+                    id="bill">
+                    <div>
+                        <h3>Bill Austin</h3>
+                        <h4>Stellan Skarsgård</h4>
+                        <!-- <img src="../img/personnages/bill.jpg" alt=""> -->
+                        <p>
+                            Le troisième <strong>potentiel père</strong> de
+                            Sophie. Célèbre écrivain voyageur qui a
+                            <strong>évité les complications</strong> d'une
+                            relation mais se demande s'il n'est pas
+                            <strong>trop tard</strong>.
+                        </p>
+                        <a href="./acteur.html#stellan"><i>Description de
+                                l'acteur</i></a>
+                    </div>
+                </section>
+
+                <section
+                    style="background-image: url('../img/personnages/rosie.jpg');"
+                    id="rosie">
+                    <div>
+                        <h3>Rosie Mulligan</h3>
+                        <h4>Julie Walters</h4>
+                        <!-- <img src="../img/personnages/rosie.jpg" alt=""> -->
+                        <p>
+                            <strong>Meilleure amie</strong> de Donna et ancienne
+                            membre des Donna and the Dynamos.
+                            <strong>Célibataire</strong> au grand cœur, elle
+                            apporte la <strong>touche comique</strong>
+                            et l'énergie positive.
+                        </p>
+                        <a href="./acteur.html#julie"><i>Description de
+                                l'actrice</i></a>
+                    </div>
+                </section>
+
+                <section
+                    style="background-image: url('../img/personnages/tanya.jpg');"
+                    id="tanya">
+                    <div>
+                        <h3>Tanya Chesham-Leigh</h3>
+                        <h4>Christine Baranski</h4>
+                        <!-- <img src="../img/personnages/tanya.jpg" alt=""> -->
+                        <p>
+                            Autre <strong>amie proche</strong> de Donna, riche
+                            et glamour. Voix de la raison mais aussi
+                            <strong>confidente pleine d'esprit</strong>, elle
+                            incarne le pouvoir de l'amitié.
+                        </p>
+                        <a href="./acteur.html#christine"><i>Description de
+                                l'actrice</i></a>
+                    </div>
+                </section>
+
+                <section
+                    style="background-image: url('../img/personnages/sky.jpg');"
+                    id="sky">
+                    <div>
+                        <h3>Sky</h3>
+                        <h4>Dominic Cooper</h4>
+                        <!-- <img src="../img/personnages/sky.jpg" alt=""> -->
+                        <p>
+                            <strong>Fiancé aimant et dévoué</strong> de Sophie.
+                            Aventurier qui complète parfaitement
+                            l'héroïne par son <strong>engagement
+                                indéfectible</strong>.
+                        </p>
+                        <a href="./acteur.html#dominic"><i>Description de
+                                l'acteur</i></a>
+                    </div>
+                </section>
+
+                <section
+                    style="background-image: url('../img/personnages/ali.jpg');"
+                    id="ali">
+                    <div>
+                        <h3>Ali</h3>
+                        <h4>Ashley Lilley</h4>
+                        <!-- <img src="../img/personnages/ali.jpg" alt=""> -->
+                        <p>
+                            Jeune <strong>amie de Sophie</strong> venue pour le
+                            mariage, pleine
+                            <strong>d'excitation</strong> et d'enthousiasme.
+                        </p>
+                        <a href="./acteur.html#ashley"><i>Description de
+                                l'actrice</i></a>
+                    </div>
+                </section>
+
+                <section
+                    style="background-image: url('../img/personnages/lisa.jpg');"
+                    id="lisa">
+                    <div>
+                        <h3>Lisa</h3>
+                        <h4>Rachel McDowall</h4>
+                        <!-- <img src="../img/personnages/lisa.jpg" alt=""> -->
+                        <p>
+                            Autre <strong>amie de Sophie</strong>, tout aussi
+                            <strong>survoltée</strong> pour le mariage.
+                        </p>
+                        <a href="./acteur.html#rachel"><i>Description de
+                                l'actrice</i></a>
+                    </div>
+                </section>
+
+                <section
+                    style="background-image: url('../img/personnages/petros.jpg');"
+                    id="petros">
+                    <div>
+                        <h3>Petros</h3>
+                        <h4>Juan Pablo Di Pace</h4>
+                        <!-- <img src="../img/personnages/petros.jpg" alt=""> -->
+                        <p>
+                            <strong>Barman énergique et dragueur</strong> à la
+                            taverne.
+                        </p>
+                        <a href="./acteur.html#juan"><i>Description de
+                                l'acteur</i></a>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            Léo Cholvy - P24 ©
+
+            <a href="https://beacons.page/mr_pouleto" target="_blank">
+                <i class="fa-solid fa-link"></i>
+            </a>
+            <a href="https://www.instagram.com/leo_cholvy/"
+                target="_blank">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://github.com/LeoCholvy" target="_blank">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </footer>
+        <script>
+            AOS.init({disable: 'mobile'});
+        </script>
+    </body>
+    <script src="../script/burgerMenu.js"></script>
+    <!-- ce code permet aux utilisateurs sur mobile ou tablette de lire les descriptions -->
+    <script>
+        const sections = document.querySelectorAll('section');
+
+        sections.forEach(section => {
+            section.addEventListener('click', () => {
+                if (section.classList.contains('active-perso')) {
+                    section.classList.remove('active-perso');
+                } else {
+                    sections.forEach(section => {
+                        section.classList.remove('active-perso');
+                    });
+                    section.classList.add('active-perso');
+                }
+            });
+        });
+    </script>
+</html>

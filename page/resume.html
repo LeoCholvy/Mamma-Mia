@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="CHOLVY Léo">
+        <meta name="description" content="Site vitrine sur le film Mamma Mia! réalisé par Léo Cholvy dans le cadre de l'UE MM01 de l'Université de Technologie de Troyes au semestre P24">
+        <meta name="keywords" content="mamma, mia, mm01, utt, abba, quizz, blind, test, representation, acteur, personnage, bande, son, synopsis, resume, vitrine, presentation, film, comedie, musicale, dance, romance">
+        <title>Résumé</title>
+        <!-- icon ico-->
+        <link rel="icon" type="image/x-icon" href="../img/favicon_40.png" />
+
+        <link rel="stylesheet" href="../style/style.css" />
+        <link rel="stylesheet" href="../style/dispo_grid.css" />
+    </head>
+    <script src="https://kit.fontawesome.com/062ed41b50.js"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .trailer {
+            width: min(760px, calc(100vw * 2/3 * 0.90));
+            margin: 4rem 0;
+            height: min(323px, calc(100vw * 2/3 * 238 / 560 * 0.9));
+        }
+        iframe {
+            border-radius: 1.3rem;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .trailer {
+                width: 80vw;
+                height: calc(80vw* 238 / 560);
+                margin: 1rem 0;
+            }
+            aside {
+                width: 80%;
+                max-width: inherit;
+            }
+        }
+        @media only screen and (max-width: 425px) {
+            .trailer {
+                width: 95vw;
+                height: calc(95vw* 238 / 560);
+            }
+            aside {
+                width: 100%;
+            }
+            section {
+                margin: 1rem;
+            }
+        }
+    </style>
+    <body>
+        <div class="container">
+            <header>
+                <div id="burger-bg"></div>
+                <a href="../index.html" title="vers l'accueil"
+                    id="logo"><h2>MAMMA MIA!</h2></a>
+                <i class="fa-solid fa-2xl fa-bars" id="burger-icon"
+                    onclick="toggleBurger()"></i>
+                <nav>
+                    <a href="resume.html" style="font-weight: bold;">Résumé</a>
+                    <div class="dropdown">
+                        <a class="dropdown-btn">Rôles<i
+                                class="fa-solid fa-caret-down"></i><i
+                                class="fa-solid fa-caret-up"></i></a>
+                        <div class="dropdown-content">
+                            <a href="personnage.html">Personnages</a>
+                            <a href="acteur.html">Acteurs</a>
+                        </div>
+                    </div>
+                    <a href="representation.html">Représentation</a>
+                    <a href="bande-son.html">Bandes sons</a>
+                    <div class="dropdown">
+                        <a class="dropdown-btn">Jeux<i
+                                class="fa-solid fa-caret-down"></i><i
+                                class="fa-solid fa-caret-up"></i></a>
+                        <div class="dropdown-content">
+                            <a href="quizz.html">Quiz</a>
+                            <a href="blind-test.html">Blind-test</a>
+                        </div>
+                    </div>
+                    <a href="source.html">Sources</a>
+                    <a href="contact.html">Contacts</a>
+                </nav>
+            </header>
+            <main>
+                <!-- trailer youtube -->
+                <!-- div.trailer sert a gérer les dimensions de la video -->
+                <div class="trailer" data-aos="zoom-in-up"
+                    data-aos-duration="200" data-aos-easing="ease-out">
+                    <iframe width="100%" height="100%"
+                        src="https://www.youtube.com/embed/iCVpJ8x1Tnc?si=-Cn8rnS0cgHXbM0p"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen></iframe>
+                </div>
+            </main>
+
+            <aside>
+                <!-- résumé -->
+                <section title="résumé" data-aos="fade-left"
+                    data-aos-easing="ease-out" data-aos-duration="100">
+                    <h2>Résumé</h2>
+                    <p>
+                        <strong>"Mamma Mia!"</strong> est une comédie musicale
+                        enjouée et romantique sortie en 2008, inspirée des
+                        chansons du groupe <strong>ABBA</strong>. L'histoire se
+                        déroule sur une île grecque pittoresque où Sophie, une
+                        jeune femme sur le point de se <strong>marier</strong>,
+                        rêve de découvrir l'identité de son père. Sa mère,
+                        Donna, qui a élevé Sophie seule, est l'ancienne
+                        chanteuse d'un groupe de musique. Pour résoudre ce
+                        mystère, Sophie invite en secret trois hommes du passé
+                        de sa mère à son mariage, chacun pouvant potentiellement
+                        être son père. Le film explore les thèmes de la famille,
+                        de l'amour, et de la découverte de soi, tout en offrant
+                        une bande sonore entraînante et des numéros de danse
+                        énergiques.
+                    </p>
+                </section>
+            </aside>
+
+            <footer>
+                Léo Cholvy - P24 ©
+
+                <a href="https://beacons.page/mr_pouleto" target="_blank">
+                    <i class="fa-solid fa-link"></i>
+                </a>
+                <a href="https://www.instagram.com/leo_cholvy/"
+                    target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://github.com/LeoCholvy" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </footer>
+        </div>
+
+        <script>
+            AOS.init({disable: 'mobile'});
+        </script>
+    </body>
+    <script src="../script/burgerMenu.js"></script>
+</html>

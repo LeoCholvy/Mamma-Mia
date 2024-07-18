@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="CHOLVY Léo">
+        <meta name="description" content="Site vitrine sur le film Mamma Mia! réalisé par Léo Cholvy dans le cadre de l'UE MM01 de l'Université de Technologie de Troyes au semestre P24">
+        <meta name="keywords" content="mamma, mia, mm01, utt, abba, quizz, blind, test, representation, acteur, personnage, bande, son, synopsis, resume, vitrine, presentation, film, comedie, musicale, dance, romance">
+        <title>Bandes sons</title>
+        <!-- icon ico-->
+        <link rel="icon" type="image/x-icon" href="../img/favicon_40.png" />
+
+        <link rel="stylesheet" href="../style/style.css" />
+        <link rel="stylesheet" href="../style/dispo_grid.css">
+    </head>
+    <script src="https://kit.fontawesome.com/062ed41b50.js"
+        crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        aside {
+            font-size: 1.2rem;
+        }
+        aside ul li:hover {
+            cursor: pointer;
+        }
+        main .section {
+            width: 90%;
+            margin: 4rem 0;
+        }
+
+
+        :root {
+        --primary-color: #34739e;
+        --text-color: #032e4d;
+        }
+
+        .player .icon-pause {
+        display: none;
+        }
+
+        .player.playing .icon-pause {
+        display: inline-block;
+        }
+
+        .player.playing .icon-play {
+        display: none;
+        }
+
+        .dashboard {
+        width: 100%;
+        }
+
+        /* HEADER */
+        .header {
+        text-align: center;
+        }
+
+        .header h4 {
+        color: var(--primary-color);
+        }
+
+        .header h2 {
+        color: var(--text-color);
+        }
+
+        /* CD */
+        .cd {
+        display: flex;
+        margin: auto;
+        width: 13rem;
+        }
+
+        .cd-thumb {
+        width: 100%;
+        padding-top: 100%;
+        border-radius: 50%;
+        background-color: #032e4d;
+        background-size: cover;
+        margin: auto;
+        }
+
+        /* CONTROL */
+        .control {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 18px 0 8px 0;
+        }
+
+        .control .btn {
+            color: #666;
+        }
+
+        .control .btn.active {
+        color: var(--primary-color);
+        }
+
+        .control .btn-toggle-play {
+        width: 2.3em;
+        height: 2.3em;
+        border-radius: 50%;
+        font-size: 24px;
+        color: #f2f9fd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary-color);
+        }
+
+        .progress {
+        width: 100%;
+        -webkit-appearance: none;
+        height: 6px;
+        background: #f2f9fd;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: 0.2s;
+        transition: opacity 0.2s;
+        }
+
+        .progress::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 12px;
+        height: 6px;
+        background-color: var(--primary-color);
+        cursor: pointer;
+        }
+
+        /* PLAYLIST */
+        .playlist {
+            margin-top: 1em;
+        /* margin-top: 408px; */
+        /* padding: 12px; */
+        }
+
+        .song {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        background-color: #f2f9fd;
+        padding: 8px 16px;
+        border-radius: 5px;
+        box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        }
+
+        .song.active {
+        background-color: var(--primary-color);
+        text-decoration: none;
+        }
+
+        /*Tạo cảm giác nhấn */
+        .song:active {
+        opacity: 0.8;
+        }
+
+        .song.active .option,
+        .song.active .author,
+        .song.active .title {
+        color: #f2f9fd;
+        }
+
+        .song .thumb {
+        width: 2em;
+        height: 2em;
+        border-radius: 50%;
+        background-size: cover;
+        margin: 0 8px;
+        }
+
+        .song .body {
+        flex: 1;
+        padding: 0 16px;
+        }
+
+        .song .title {
+        font-size: 18px;
+        color: var(--text-color);
+        }
+
+        .song .author {
+        font-size: 12px;
+        color: #999;
+        }
+
+        .song .option {
+        padding: 16px 8px;
+        color: #999;
+        font-size: 18px;
+        }
+
+        aside a {
+            width: 100%;
+            text-align: center;
+            display: block;
+        }
+        aside button {
+            margin: 0.5rem;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <header>
+                <div id="burger-bg"></div>
+                <a href="../index.html" title="vers l'accueil"
+                    id="logo"><h2>MAMMA MIA!</h2></a>
+                <i class="fa-solid fa-2xl fa-bars" id="burger-icon"
+                    onclick="toggleBurger()"></i>
+                <nav>
+                    <a href="resume.html">Résumé</a>
+                    <div class="dropdown">
+                        <a class="dropdown-btn">Rôles<i
+                                class="fa-solid fa-caret-down"></i><i
+                                class="fa-solid fa-caret-up"></i></a>
+                        <div class="dropdown-content">
+                            <a href="personnage.html">Personnages</a>
+                            <a href="acteur.html">Acteurs</a>
+                        </div>
+                    </div>
+                    <a href="representation.html">Représentation</a>
+                    <a href="bande-son.html" style="font-weight: bold;">Bandes sons</a>
+                    <div class="dropdown">
+                        <a class="dropdown-btn">Jeux<i
+                                class="fa-solid fa-caret-down"></i><i
+                                class="fa-solid fa-caret-up"></i></a>
+                        <div class="dropdown-content">
+                            <a href="quizz.html">Quiz</a>
+                            <a href="blind-test.html">Blind-test</a>
+                        </div>
+                    </div>
+                    <a href="source.html">Sources</a>
+                    <a href="contact.html">Contacts</a>
+                </nav>
+            </header>
+
+            <main>
+                <div class="player section" data-aos="zoom-in-up"
+                    data-aos-duration="200" data-aos-easing="ease-out">
+                    <!-- Dashboard -->
+                    <div class="dashboard">
+                        <!-- Header -->
+                        <div class="header">
+                            <h4>Now playing:</h4>
+                            <h2>String 57th & 9th</h2>
+                        </div>
+
+                        <!-- CD -->
+                        <div class="cd">
+                            <div class="cd-thumb"
+                                style="background-image: url('https://i.ytimg.com/vi/jTLhQf5KJSc/maxresdefault.jpg')">
+                            </div>
+                        </div>
+
+                        <!-- Control -->
+                        <div class="control">
+                            <div class="btn btn-repeat">
+                                <i class="fas fa-redo"></i>
+                            </div>
+                            <div class="btn btn-prev">
+                                <i class="fas fa-step-backward"></i>
+                            </div>
+                            <div class="btn btn-toggle-play">
+                                <i class="fas fa-pause icon-pause"></i>
+                                <i class="fas fa-play icon-play"></i>
+                            </div>
+                            <div class="btn btn-next">
+                                <i class="fas fa-step-forward"></i>
+                            </div>
+                            <div class="btn btn-random">
+                                <i class="fas fa-random"></i>
+                            </div>
+                        </div>
+
+                        <input id="progress" class="progress" type="range"
+                            value="0" step="1" min="0" max="100">
+
+                        <audio id="audio" src></audio>
+                    </div>
+                </div>
+            </main>
+
+            <aside class="section" data-aos="fade-left"
+                data-aos-easing="ease-out" data-aos-duration="100">
+                <h3>Musiques du film</h3>
+
+                <!-- Playlist -->
+                <div class="playlist"></div>
+
+                <a href="blind-test.html"><button>Faire le
+                        Blind-test</button></a>
+            </aside>
+
+            <footer>
+                Léo Cholvy - P24 ©
+
+                <a href="https://beacons.page/mr_pouleto" target="_blank">
+                    <i class="fa-solid fa-link"></i>
+                </a>
+                <a href="https://www.instagram.com/leo_cholvy/"
+                    target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://github.com/LeoCholvy" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </footer>
+        </div>
+    </body>
+    <script src="../script/burgerMenu.js"></script>
+    <script src="../script/music_player.js"></script>
+    <script>
+        AOS.init({disable: 'mobile'});
+    </script>
+</html>
